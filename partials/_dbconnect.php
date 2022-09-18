@@ -2,8 +2,8 @@
 $insert = false;
 $update = false;
 $delete = false;
-$host= 
-$server = "localhost:3306";
+
+$server = "localhost";
 $username = "root";
 $password = "";
 $database = "oldweb";

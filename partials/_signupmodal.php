@@ -7,7 +7,7 @@
         <h5 class="modal-title" id="signupModalLabel">Signup for an iWay Account</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="/partials/_handlesignup.php" method="POST">
+      <form action="partials/_handlesignup.php" method="POST">
             <div class="modal-body">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Username</label>

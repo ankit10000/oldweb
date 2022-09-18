@@ -40,7 +40,7 @@
            <span aria-hidden="true">×</span>
          </button>
        </div>
-       <form action="/form/contact.php" method="POST">
+       <form action="contact.php" method="POST">
          <div class="modal-body">
            <input type="hidden" name="snoEdit" id="snoEdit">
            <div class="form-group">
@@ -97,7 +97,7 @@
  <div class="container" style="height: 120vh;">
   <div class="container my-4">
     <h1 style="text-align: center;">Contact Us!</h1>
-    <form action="/contact.php" method="POST">
+    <form action="contact.php" method="POST">
       <div class="form-group">
         <label for="title">Title</label>
                     <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" Required>
@@ -120,7 +120,7 @@
           <th scope="col">S.No</th>
           <th scope="col">Title</th>
           <th scope="col">Description</th>
-          <!-- <th scope="col">Actions</th> -->
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -134,11 +134,11 @@
             <th scope='row'>". $sno . "</th>
             <td>". $row['title'] . "</td>
             <td>". $row['description'] . "</td>
+            <td> <button class='edit btn btn-sm btn-primary' id=".$row['sno'].">Edit</button> <button class='delete btn btn-sm btn-primary' id=".$row['sno'].">Delete</button>  </td>
             </tr>";
           } 
           ?>
           <!-- delet and edit contact details buttens -->
-           <!-- <td> <button class='edit btn btn-sm btn-primary' id=".$row['sno'].">Edit</button> <button class='delete btn btn-sm btn-primary' id=".$row['sno'].">Delete</button>  </td> -->
 
 
       </tbody>
@@ -186,11 +186,11 @@
     Array.from(deletes).forEach((element) => {
       element.addEventListener("click", (e) => {
         console.log("edit ");
-        sno = e.target.id.substr(1);
+        sno = e.target.id.substr(0);
 
         if (confirm("Are you sure you want to delete this note!")) {
           console.log("yes");
-          window.location = `/contact.php?delete=${sno}`;
+          window.location = `contact.php?delete=${sno}`;
           // TODO: Create a form and use post request to submit a form
         }
         else {

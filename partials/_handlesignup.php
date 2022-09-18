@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             if($result){
                 $showAlert = true;
-                header("Location: /index.php?signupsuccess=true");
+                header("Location: /web/index.php?signupsuccess=true");
                 exit();
             }
 
@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
         }
     }
-    header("Location: /index.php?signupsuccess=false&error=$showError");
+    header("Location: /web/index.php?signupsuccess=false&error=$showError");
 
 }
 ?>
