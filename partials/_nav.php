@@ -34,7 +34,7 @@ echo ' </ul>
 
 
 require 'partials/_loginmodal.php';
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+if (isset($_SESSION['loggedin']) || $_SESSION['loggedin']==true) {
 
 
     echo '

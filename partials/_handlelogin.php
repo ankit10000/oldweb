@@ -9,19 +9,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     // $sql = "Select * from users where username='$username'";
-    $sql = "Select * from users where  user_email='$email'";
+    $sql = "Select * from users where  user_email='$email' And user_pass='$pass'";
     $result = mysqli_query($conn, $sql);
     $num = mysqli_num_rows($result);
-    if ($num) {
-        $user_pass = mysqli_fetch_assoc($result);
+    if ($num == 1) {
+        $pass = mysqli_fetch_assoc($result);
         $login = true;
         session_start();
-        $_SESSION['loggedin'] == true;
+        $_SESSION['loggedin'] = true;
         $_SESSION['sno'] = $row['sno'];
         $_SESSION['user_email'] = $email;
        
-        $user_pass = 'user_pass';
-        if($user_pass){
+        if($pass){
             
          $showAlert = true;
         header("Location: /web/index.php?loggedin=true");

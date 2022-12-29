@@ -1,32 +1,34 @@
-<?php session_start(); ?>
+<?php session_start();
+
+?>
 <!doctype html>
 <html lang="en">
-    
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-        <title>iWay - || welcome to coding ||</title>
-        <style>
-            
-            </style>
+    <title>iWay - || welcome to coding ||</title>
+    <style>
+ 
+    </style>
 </head>
 
 <body>
     <?php require 'partials/_dbconnect.php'; ?>
-    <?php require 'partials/_nav.php'; ?>
     
     <?php require 'partials/_handlelogin.php'; ?>
     <?php require 'partials/_handlesignup.php'; ?>
+    <?php require 'partials/_nav.php'; ?>
     
     <?php
 
-if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "true"){
+  if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
             echo'
             <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
             <strong>Success!</strong> You login successfully.
