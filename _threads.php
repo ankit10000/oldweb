@@ -99,17 +99,16 @@
             $title = $row['thread_title'];
             $desc = $row['thread_desc'];
             $thread_time = $row['timestamp'];
-            $threa_user_id = $row['thread_user_id'];
-            $sql2 = "SELECT user_email FROM `users` WHERE sno='$threa_user_id'";
+            $thread_user_id = $row['thread_user_id'];
+            $sql2 = "SELECT user_name FROM `users` WHERE sno='$thread_user_id'";
             $result2 = mysqli_query($conn, $sql2);
             $row2 = mysqli_fetch_assoc($result2);
-            $user_emai = $row2['user_email'];
 
             echo '
         <div class="media">
           <img class="mr-3" src="img/userdefoultimg.png" width="60px" alt=".....">
             <div class="media-body">
-                <h5 class="my-0"><b>Ask By :- '. $user_emai . ' at '. $thread_time .'</b></h5>
+                <h5 class="my-0"><b>Ask By :- '. $row2['user_name'] . ' at '. $thread_time .'</b></h5>
                 <h5 class="mt-0"><a href="thread.php?threadid=' . $id . '">' . $title . '</a></h5>
                 ' . $desc . '
             </div>

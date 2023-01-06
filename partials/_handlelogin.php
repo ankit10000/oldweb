@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
          $showAlert = true;
         header("Location: /web/index.php?loggedin=true");
-        echo "logged in". $email;
+        echo "logged in". $email; 
         }
     } 
     else{
