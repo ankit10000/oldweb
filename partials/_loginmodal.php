@@ -7,10 +7,10 @@
                 <h5 class="modal-title" id="loginModalLabel">Login to iWay</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-        <form action="/partials/_handlelogin.php" method="POST">
+        <form action="partials/_handlelogin.php" method="POST">
             <div class="modal-body">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Username</label>
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
                         <input type="text" class="form-control" id="loginEmail" name="loginEmail" aria-describedby="emailHelp" required>
                         <div id="emailHelp" class="form-text">We'll never share your username with anyone else.</div>
                     </div>

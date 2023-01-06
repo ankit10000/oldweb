@@ -1,4 +1,6 @@
-<php session_start(); ?>
+<?php session_start();
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -26,7 +28,7 @@
     
     <?php
 
-  if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == "true"){
+  if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
             echo'
             <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
             <strong>Success!</strong> You login successfully.
