@@ -1,0 +1,9 @@
+body{
+    background-image: url('../img/bg.jpg');
+}
+.media img{
+    border-radius: 30px;
+}
+table.dataTable tbody tr{
+    background-color: transparent;
+}

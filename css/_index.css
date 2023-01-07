@@ -1,0 +1,26 @@
+.card1{
+    border-radius: 50px;
+}
+#btnthread{
+    display: block;
+    width: 50%;
+    margin-left: 25%;
+}
+#btnthread:hover{
+    transform: scale(1.1);
+}
+.card-title{
+    text-align: center;
+}
+.card-img-top{
+    border-radius: 50px;
+}
+.colcard{
+    background-color: #e4e7ff85;
+}
+.colimg:hover{
+    opacity: .5;
+}
+body{
+    background-image: url('../img/bg.jpg');
+}

@@ -1,5 +1,5 @@
 <?php
-$login = false;
+// $login = false;
 $showError = false;
 include '_dbconnect.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,14 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $num = mysqli_num_rows($result);
     if ($num == 1) {
         $pass = mysqli_fetch_assoc($result);
-        $login = true;
-        session_start();
-        $_SESSION['loggedin'] = true;
-        $_SESSION['sno'] = $row['sno'];
-        $_SESSION['user_email'] = $email;
-       
+        // $login = true;
+        
         if($pass){
-            
+            session_start();
+            $_SESSION['loggedin'] = true;
+            $_SESSION['sno'] = $row['sno'];
+            $_SESSION['user_email'] = $email;
          $showAlert = true;
         header("Location: /web/index.php?loggedin=true");
         echo "logged in". $email; 

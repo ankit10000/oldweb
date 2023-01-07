@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="./css/_nav.css">
 <?php
 
 echo '   
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+ <nav class="navbar navbar-expand-lg navbar-dark nav">
 <div class="container-fluid">
-    <a class="navbar-brand" href="index.php">iWay</a>
+    <a class="navbar-brand" href="index.php">Digi-Query</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,7 +27,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 echo ' </ul>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="contact.php">ContactUs</a>
+<a class="nav-link" href="feedback.php">Feedback</a>
 </li>
 </ul>
             <!-- login and register buttens here -->
@@ -34,7 +35,7 @@ echo ' </ul>
 
 
 require 'partials/_loginmodal.php';
-if (isset($_SESSION['loggedin']) || $_SESSION['loggedin']==true) {
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true) {
 
 
     echo '
