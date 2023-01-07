@@ -12,7 +12,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/_nav.css">
+    <link rel="stylesheet" href="css/_index.css">
     <title>iWay - || welcome to coding ||</title>
     <style>
  
@@ -93,13 +94,13 @@
       $id = $row['category_id'];
       $cat = $row['category_name'];
       $desc = $row['category_description'];
-        echo '<div class="col-md-4 my-2">
-          <div class="card" style="width: 18rem;">
-              <img src="https://source.unsplash.com/500x400/?'. $cat .',coding" class="card-img-top" alt="...">
+        echo '<div class="col-md-4 my-2 ">
+          <div class="card card1 colcard" style="width: 18rem;">
+          <a href="_threads.php?catid='. $id .'"><img src="https://source.unsplash.com/400x300/?'. $cat .',coding" class="card-img-top colimg" alt="..."></a>
               <div class="card-body">
                   <h5 class="card-title"><a href="_threads.php?catid='. $id .'">'. $cat .'</a></h5>
                   <p class="card-text" style="text-align: justify;">'. substr($desc, 0,100) .'....</p>
-                  <a href="_threads.php?catid='. $id .'" class="btn btn-primary">Veiw Thread</a>
+                  <a href="_threads.php?catid='. $id .'" id="btnthread" class="btn btn-primary mb-3">Veiw Thread</a>
               </div>
           </div>
         </div>';

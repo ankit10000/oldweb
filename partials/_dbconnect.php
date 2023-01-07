@@ -32,20 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
       echo "We could not update the record successfully";
     }
-  } else {
-    // $title = $_POST["title"];
-    // $description = $_POST["description"];
-
-    // // Sql query to be executed
-    // $sql = "INSERT INTO `notes` (`title`, `description`) VALUES ('$title', '$description')";
-    // $result = mysqli_query($conn, $sql);
-
-
-    // if ($result) {
-    //   $insert = true;
-    // } else {
-    //   echo "The record was not inserted successfully because of this error ---> " . mysqli_error($conn);
-    // }
-  }
+  } 
 }
 ?>

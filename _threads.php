@@ -9,6 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/_thread.css">
 
     <title>iWay - || welcome to coding ||</title>
     <style>
@@ -42,12 +43,12 @@
         //insert into data 
         $thread_title = $_POST['title'];
         $thread_desc = $_POST['desc'];
+        $sno = $_POST['sno'];
         $thread_title = str_replace("<", "&lt;", $thread_title);
         $thread_title = str_replace(">", "&gt;", $thread_title);
         $thread_desc = str_replace("<", "&lt;", $thread_desc);
         $thread_desc = str_replace(">", "&gt;", $thread_desc);
-        $sno = $_POST['sno'];
-        $sql = "INSERT INTO `threads` (`thread_title`, `thread_desc`, `thread_cat_id`, `thread_user_id`, `timestamp`) VALUES ('$thread_title', '$thread_desc','$id','$sno' , current_timestamp())";
+        $sql = "INSERT INTO `threads` (`thread_title`, `thread_desc`, `thread_cat_id`,`thread_user_id`, `timestamp`) VALUES ('$thread_title', '$thread_desc','$id','$sno' , current_timestamp())";
         $result = mysqli_query($conn, $sql);
         $showalert = true;
         if($showalert){
@@ -77,9 +78,9 @@
                 4.Do not cross post questions.
             <br>
                 5.Remain respectful of other members at all times.</p>
-            <p class="lead">
+            <!-- <p class="lead">
                 <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-            </p>
+            </p> -->
         </div>
     </div>
 
@@ -100,7 +101,7 @@
             $desc = $row['thread_desc'];
             $thread_time = $row['timestamp'];
             $thread_user_id = $row['thread_user_id'];
-            $sql2 = "SELECT user_name FROM `users` WHERE sno='$thread_user_id'";
+            $sql2 = "SELECT user_email FROM `users` WHERE sno='$thread_user_id'";
             $result2 = mysqli_query($conn, $sql2);
             $row2 = mysqli_fetch_assoc($result2);
 
@@ -108,7 +109,7 @@
         <div class="media">
           <img class="mr-3" src="img/userdefoultimg.png" width="60px" alt=".....">
             <div class="media-body">
-                <h5 class="my-0"><b>Ask By :- '. $row2['user_name'] . ' at '. $thread_time .'</b></h5>
+                <h5 class="my-0"><b>Ask By :- '. $row2['user_email'] . ' at '. $thread_time .'</b></h5>
                 <h5 class="mt-0"><a href="thread.php?threadid=' . $id . '">' . $title . '</a></h5>
                 ' . $desc . '
             </div>
@@ -132,7 +133,7 @@
                 <label for="exampleInputtext1" class="form-label"><b>Problem title<b style="color: red;">*</b></b></label>
                 <input type="text" class="form-control" id="title" name="title" aria-describedby="textHelp" required>
             </div>
-            <input type="hidden" name="sno" value="'. $_SESSION["sno"] .'">
+            <input type="hidden" name="sno" value="'. $_SESSION["sno"] . '">
             <div class="mb-3">
                 <label for="exampleInputTextarea1" class="form-label"><b>Ellaborate Your Concern<b style="color: red;">*</b></b></label>
                 <textarea type="text" class="form-control" id="desc" name="desc" required></textarea>
