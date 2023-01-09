@@ -43,7 +43,7 @@
         //insert into data 
         $thread_title = $_POST['title'];
         $thread_desc = $_POST['desc'];
-        $sno = $_POST['sno'];
+        $sno = $_SESSION["sno"];
         $thread_title = str_replace("<", "&lt;", $thread_title);
         $thread_title = str_replace(">", "&gt;", $thread_title);
         $thread_desc = str_replace("<", "&lt;", $thread_desc);
