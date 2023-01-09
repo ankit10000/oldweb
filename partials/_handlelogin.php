@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($pass){
             session_start();
             $_SESSION['loggedin'] = true;
-            $_SESSION['sno'] = $row['sno'];
+            $_SESSION['sno'] = $pass['sno'];
             $_SESSION['user_email'] = $email;
          $showAlert = true;
         header("Location: /web/index.php?loggedin=true");
