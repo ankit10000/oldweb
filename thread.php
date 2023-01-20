@@ -97,7 +97,7 @@
             $content = $row['comment_content'];
             $content_time = $row['comment_time'];
             $comment_by = $row['comment_by'];
-            $sql1 = "SELECT user_email FROM `users` WHERE sno='$comment_by'";
+            $sql1 = "SELECT user_name FROM `users` WHERE sno='$comment_by'";
             $result1 = mysqli_query($conn, $sql1);
             $row1 = mysqli_fetch_assoc($result1);
 
@@ -106,7 +106,7 @@
         <div class="media">
           <img class="mr-3" src="img/userdefoultimg.png" width="60px" alt=".....">
             <div class="media-body">
-            <p class="my-0"><b>' . $row1["user_email"] . ' at ' . $content_time . '</b></p>
+            <p class="my-0"><b>' . $row1["user_name"] . ' at ' . $content_time . '</b></p>
                 ' . $content . '
             </div>
         </div>';

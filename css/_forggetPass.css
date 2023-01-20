@@ -1,0 +1,10 @@
+body{
+    background-image: url('../img/bg.jpg');
+}
+.modal-content{
+    background-color: rgba(245, 245, 245, 0.229);
+    border: none;
+}
+.modal-header{
+   justify-content: center;
+}

@@ -4,7 +4,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="signupModalLabel">Signup for an iWay Account</h5>
+        <h5 class="modal-title" id="signupModalLabel">Signup for an Digi-Query Account</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form action="partials/_handlesignup.php" method="POST">
@@ -37,7 +37,7 @@
                         <div class="g-recaptcha" data-sitekey="6LfltMIbAAAAAA5S3eXWUDMcM_rOC6J6hUnqc0RO" required></div>
                         
                         </form>
-                        <input type="submit" name="submit" class="btn btn-primary" value="submit">
+                        <input type="submit" name="submit" class="btn btn-outline-danger px-5 mt-3" value="Submit">
                     </div>
                     <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
             </div>
