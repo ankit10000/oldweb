@@ -20,6 +20,7 @@
     $email = $_SESSION["user_email"];
     $findresult = mysqli_query($conn, "SELECT * FROM users WHERE user_email= '$email'");
     if ($res = mysqli_fetch_array($findresult)) {
+        $sno = $res['sno'];
         $uname = $res['user_name'];
         $mobile = $res['user_mob'];
         $password = $res['user_pass'];
@@ -129,6 +130,7 @@
                 </div>
                 <div class="row mb-4">
                     <div class="col-sm-6">
+                        <a href="<?php echo 'partials/_deactive.php?sno='.$res['sno'].'&status=0' ?>" class="btn btn-danger mx-4" >Deactivate Account</a>
                     </div>
                     <div class="col-sm-6">
                         <button class="btn btn-success" name="update_profile">Save Profile</button>
