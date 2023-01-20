@@ -7,6 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $mobile = $_POST['signupMobile'];
     $pass = $_POST['signupPassword'];
     $cpass = $_POST['signupcPassword'];
+    $status = $_POST['status'];
 
     // Check whether this email exists
     $existSql = "SELECT * FROM `users` WHERE user_email = '$user_email'";
@@ -18,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     else{
         if($pass == $cpass){
             // $hash = password_hash($pass, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO `users` (`user_name`,`user_email`, `user_mob`, `user_pass`, `timestamp`) VALUES ('$user_name', '$user_email', '$mobile', '$pass', current_timestamp())";
+            $sql = "INSERT INTO `users` (`user_name`,`user_email`, `user_mob`, `user_pass`, `timestamp`,`status`) VALUES ('$user_name', '$user_email', '$mobile', '$pass', current_timestamp(),$status)";
             $result = mysqli_query($conn, $sql);
             
             if($result){
