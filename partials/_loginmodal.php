@@ -1,28 +1,38 @@
-<!-- Modal -->
-<script src='https://www.google.com/recaptcha/api.js'></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/_loginmodel.css">
+</head>
+<body>
+    
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Login to iWay</h5>
+                <h5 class="modal-title" id="loginModalLabel">Login to Digi-Query</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
         <form action="partials/_handlelogin.php" method="POST">
             <div class="modal-body">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="loginEmail" name="loginEmail" aria-describedby="emailHelp" required>
-                        <div id="emailHelp" class="form-text">We'll never share your username with anyone else.</div>
+                        <input type="email" class="form-control" id="loginEmail" name="loginEmail" aria-describedby="emailHelp" required>
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" class="form-control" id="loginPass" name="loginPass" required>
                     </div>
-                    <div class="mb-3 form-check">
-                        
-                    <div class="g-recaptcha" data-sitekey="6LfltMIbAAAAAA5S3eXWUDMcM_rOC6J6hUnqc0RO" required>
+                    <div class="my-2 d-flex flex-row-reverse ">
+                        <a class="forgot" href="partials/_forggetPass.php">Reset Password</a>
                     </div>
-                    <input type="submit" name="submit" value="submit" required>
+                    <div class="mb-3 form-check">
+                        <div class="g-recaptcha" data-sitekey="6LfltMIbAAAAAA5S3eXWUDMcM_rOC6J6hUnqc0RO" required>
+                    </div>
+                    <input type="submit" class="btn btn-outline-danger mt-3 px-5" name="submit" value="Submit" required>
                     
                     </div>
                     <!--<button type="submit" class="btn btn-primary">Submit</button> -->
@@ -74,4 +84,7 @@ function CheckCaptcha($userResponse) {
        echo '<script>alert("Error Message");</script>';
     }
 }
-    ?>
+?>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+</body>
+</html>

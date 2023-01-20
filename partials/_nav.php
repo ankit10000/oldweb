@@ -36,19 +36,27 @@ echo ' </ul>
 
 require 'partials/_loginmodal.php';
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true) {
-
-
-    echo '
-            <form class="d-flex" method="GET" action="_search.php">
-                <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-primary" type="submit">Search</button>
-                    <h6 class="row text-light mx-2">Welcome ' . $_SESSION['user_email'] . ' </h6>
-                    <a href="partials/_logout.php" class="btn btn-outline-primary  mx-2">Logout</a>
-            </form>
-            
-            
-            ';
-} else {
+    $email = $_SESSION["user_email"];
+    $findresult = mysqli_query($conn, "SELECT * FROM users WHERE user_email= '$email'");
+    if ($res = mysqli_fetch_array($findresult)) {
+        $uname = $res['user_name'];
+        
+        
+        echo '
+        <form class="d-flex" method="GET" action="_search.php">
+        <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary" type="submit">Search</button>
+        <a class="nav-link text-white" href="_profile.php" >
+        Welcome&nbsp;'. $uname . '
+        </a>
+        <a href="partials/_logout.php" class="btn btn-outline-primary  mx-2">Logout</a>
+        </form>
+        
+        
+        ';
+    }
+                } else {
+    // <h6 class="row text-light mx-2 my-0">Welcome ' . $_SESSION['user_name'] . ' </h6>
     echo '
     <form class="d-flex" method="GET" action="_search.php">
             <input class="form-control me-1" type="search" name="search" placeholder="Search" aria-label="Search">

@@ -1,5 +1,5 @@
 <?php
-// $login = false;
+$login = false;
 $showError = false;
 include '_dbconnect.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,12 +14,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $num = mysqli_num_rows($result);
     if ($num == 1) {
         $pass = mysqli_fetch_assoc($result);
-        // $login = true;
+        $login = true;
         
         if($pass){
             session_start();
             $_SESSION['loggedin'] = true;
             $_SESSION['sno'] = $pass['sno'];
+            $_SESSION['user_name'] = $pass['user_name'];
+            $_SESSION['user_mob'] = $pass['user_mob'];
+            $_SESSION['user_pass'] = $pass['user_pass'];
             $_SESSION['user_email'] = $email;
          $showAlert = true;
         header("Location: /web/index.php?loggedin=true");
@@ -28,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } 
     else{
         header("location: /web/index.php?loggedin=false");
-        $showError = 'password\email do not match';
+        $showError = true;
     }
     
     
