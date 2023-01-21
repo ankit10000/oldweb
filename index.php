@@ -45,6 +45,14 @@
           </div>
             ';
         }
+        else if(isset($_GET['deactivateaccount'])){
+            echo'
+            <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
+            <strong>Success!</strong> Deactivate account successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            ';
+        }
 ?>
 
 
