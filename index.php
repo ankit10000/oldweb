@@ -14,7 +14,7 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="css/_nav.css">
     <link rel="stylesheet" href="css/_index.css">
-    <title>iWay - || welcome to coding ||</title>
+    <title>Digi-Query - || welcome to Digi-Query ||</title>
     <style>
  
     </style>
