@@ -11,18 +11,40 @@
 </head>
 
 <body>
+<?php
+    require '_dbconnect.php';
+    $sno = $_GET['sno'];
+    if (isset($_POST['submit'])) {
+        if ($_POST['Pass'] != $_POST['confirmPass']) {
+            echo "Missmatch Password please check";
+        }else{
+            $sql = "SELECT * FROM `users` WHERE sno=$sno";
+            $result = mysqli_query($conn, $sql);
+            $row1 = mysqli_fetch_assoc($result);
+            $resetmail = $row1['user_email'];
+            $pass = $_POST['Pass'];
+            $result1 = mysqli_query($conn, "UPDATE users SET user_pass='$pass' WHERE user_email='$resetmail'");
+            if ($result1) {
+                header("location:/web/index.php?reset_true");
+            }else{
+                echo "changes not saved";
+            }
+        }
+    }
+    
+    ?>
     <div class="modal-dialog container">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title " id="loginModalLabel">Forgot Password</h5>
             </div>
-            <form action="#" method="POST">
+            <form action="" method="POST">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">New Password</label>
                         <input type="password" class="form-control" id="Pass" name="Pass" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3"> 
                         <label for="exampleInputPassword1" class="form-label">Confirm New Password</label>
                         <input type="password" class="form-control" id="confirmPass" name="confirmPass" required>
                     </div>

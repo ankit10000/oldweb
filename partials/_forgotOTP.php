@@ -11,12 +11,31 @@
 </head>
 
 <body>
+    <?php
+    require '_dbconnect.php';
+    $sno = $_GET['sno'];
+    
+    if (isset($_POST['submit'])) {
+        $recivedotp = $_POST['otp'];
+
+        $sql = "SELECT * FROM `sendingotp` WHERE otp_time";
+        $result = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_assoc($result)) {
+            $storedotp = $row['otp_otp'];
+        }
+        if ($recivedotp == $storedotp) {
+            header("location:_forgotChangePass.php?sno=$sno");
+        } else {
+            echo "wrong otp";
+        }
+    }
+    ?>
     <div class="modal-dialog container">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title " id="loginModalLabel">Forgot Password</h5>
             </div>
-            <form action="_forgotChangePass.php" method="POST">
+            <form action="" method="POST">
                 <div class="modal-body">
                         <label for="exampleInputPassword1" class="form-label">OTP</label>
                         <input type="text" class="form-control" id="otp" name="otp" required>
