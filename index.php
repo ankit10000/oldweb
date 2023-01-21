@@ -14,7 +14,7 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="css/_nav.css">
     <link rel="stylesheet" href="css/_index.css">
-    <title>iWay - || welcome to coding ||</title>
+    <title>Digi-Query - || welcome to Digi-Query ||</title>
     <style>
  
     </style>
@@ -41,6 +41,14 @@
             echo'
             <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
             <strong>Success!</strong> Password reset successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            ';
+        }
+        else if(isset($_GET['deactivateaccount'])){
+            echo'
+            <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
+            <strong>Success!</strong> Deactivate account successfully.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
             ';

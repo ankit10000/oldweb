@@ -29,6 +29,11 @@
     while ($row = mysqli_fetch_assoc($result)) {
         $title = $row['thread_title'];
         $desc = $row['thread_desc'];
+        $thread_user_id = $row['thread_user_id'];
+            $sql2 = "SELECT user_name FROM `users` WHERE sno='$thread_user_id'";
+            $result2 = mysqli_query($conn, $sql2);
+            $row2 = mysqli_fetch_assoc($result2);
+            $posted_by = $row2['user_name'];
     }
 
     ?>
@@ -68,7 +73,7 @@
                 (4).Do not cross post questions.<br>
                 (5).Remain respectful of other members at all times.</p>
             <p class="lead">
-                <a class="btn btn-primary btn-dark text-light bg-dark" role="button"><b>Created By :</b></a>
+                <a class="btn btn-primary btn-dark text-light bg-dark" role="button"><b>Created By : <?php echo $posted_by ?></b></a>
             </p>
         </div>
     </div>
