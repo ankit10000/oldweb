@@ -30,11 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "logged in". $email; 
             }
         }else{
-            header("location:/web/index.php");
+            header("location:/web/index.php?accountisdeactivated");
         }
     } 
     else{
-        header("location: /web/index.php?loggedin=false");
+        header("location: /web/index.php?loggedinfalse");
         $showError = true;
     }
     
