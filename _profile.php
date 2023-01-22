@@ -27,8 +27,8 @@
     }
 
     ?>
-    <div class="modal-dialog container">
-        <div class="modal-content">
+    <div class="modal-dialog container mb-4">
+        <div class="modal-content mb-4">
             <div class="modal-header">
                 <h5 class="modal-title " id="loginModalLabel">Profile</h5>
             </div>
@@ -44,11 +44,11 @@
                 if (mysqli_num_rows($res) != 0) {
                     $row = mysqli_fetch_assoc($res);
                     if ($uname == null || $email == null || $mobile == null || $password == null) {
-                        $error[] = 'Please fill the blank input';
+                        echo '<script>location.replace("/web/_profile.php?Please_fill_the_blank_input")</script>';
                     }
                     if ($oldusername != $_SESSION['user_name']) {
                         if ($uname == $row['user_name']) {
-                            $error[] = 'Username alerady exist';
+                            echo '<script>location.replace("/web/_profile.php?Username_alerady_exist")</script>';
                         }
                     }
                 }
@@ -56,34 +56,49 @@
                 if (!isset($error)) {
                     $result = mysqli_query($conn, "UPDATE users SET user_name='$uname',user_mob='$mobile',user_pass='$password' WHERE user_email='$email'");
                     if ($result) {
-                        $alert[] = 'Changes Saved';
+                        echo '<script>location.replace("/web/_profile.php?saved_changes")</script>';
                     } else {
-                        $error[] = 'Something went wrong';
-                    }
-                }
-
-                if (isset($alert)) {
-
-                    foreach ($alert as $alert) {
-                        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>Success!</strong> ' . $alert . '
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>';
-                    }
-                }
-                if (isset($error)) {
-
-                    foreach ($error as $error) {
-                        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Warning!</strong> ' . $error . '
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>';
+                        echo '<script>location.replace("/web/_profile.php?something_went_wrong")</script>';
                     }
                 }
             }
 
 
 
+            ?>
+            <?php
+            if (isset($_GET['saved_changes'])) {
+                echo '
+            <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
+            <strong>Warning!</strong> Changes Saved.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            ';
+            }
+            if (isset($_GET['Please_fill_the_blank_input'])) {
+                echo '
+            <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
+            <strong>Warning!</strong> Please fill the blank input.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            ';
+            }
+            if (isset($_GET['Username_alerady_exist'])) {
+                echo '
+            <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
+            <strong>Warning!</strong> Username alerady exist.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            ';
+            }
+            if (isset($_GET['something_went_wrong'])) {
+                echo '
+            <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
+            <strong>Warning!</strong> Something went wrong.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            ';
+            }
             ?>
             <form method="post" enctype='multipart/form-data' action="">
                 <div class="form-group my-4 mx-4">
@@ -130,7 +145,7 @@
                 </div>
                 <div class="row mb-4">
                     <div class="col-sm-6">
-                        <a href="<?php echo 'partials/_deactive.php?sno='.$res['sno'].'&status=0' ?>" class="btn btn-danger mx-4" >Deactivate Account</a>
+                        <a href="<?php echo 'partials/_deactive.php?sno=' . $res['sno'] . '&status=0' ?>" class="btn btn-danger mx-4">Deactivate Account</a>
                     </div>
                     <div class="col-sm-6">
                         <button class="btn btn-success" name="update_profile">Save Profile</button>
