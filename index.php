@@ -37,6 +37,14 @@
           </div>
             ';
         }
+        else if(isset($_GET['loggedinfalse'])){
+            echo'
+            <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
+            <strong>Warning!</strong> Invalide Credentials.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            ';
+        }
         else if(isset($_GET['reset_true'])){
             echo'
             <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
@@ -49,6 +57,54 @@
             echo'
             <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
             <strong>Success!</strong> Deactivate account successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            ';
+        }
+        else if(isset($_GET['loggedout'])){
+            echo'
+            <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
+            <strong>Success!</strong> Account loggedout successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            ';
+        }
+        else if(isset($_GET['accountisdeactivated'])){
+            echo'
+            <div class="alert alert-danger alert-dismissible fade show my-0" role="alert">
+            <strong>Warning!</strong> Account is deactivated.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            ';
+        }
+        else if(isset($_GET['signupsuccess_false_user_name_alerady_in_use'])){
+            echo'
+            <div class="alert alert-danger alert-dismissible fade show my-0" role="alert">
+            <strong>Warning!</strong> Username alerady in use.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            ';
+        }
+        else if(isset($_GET['signupsuccess_false_user_email_alerady_in_use'])){
+            echo'
+            <div class="alert alert-danger alert-dismissible fade show my-0" role="alert">
+            <strong>Warning!</strong> Email alerady in use.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            ';
+        }
+        else if(isset($_GET['signupsuccess_false_user_mob_alerady_in_use'])){
+            echo'
+            <div class="alert alert-danger alert-dismissible fade show my-0" role="alert">
+            <strong>Warning!</strong> Mobile alerady in use.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            ';
+        }
+        else if(isset($_GET['signupsuccess_false_password_not_matched_alerady_in_use'])){
+            echo'
+            <div class="alert alert-danger alert-dismissible fade show my-0" role="alert">
+            <strong>Warning!</strong> Password not matched.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
             ';

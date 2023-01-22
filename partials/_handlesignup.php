@@ -10,31 +10,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $status = $_POST['status'];
 
     // Check whether this email exists
-    $existSql = "SELECT * FROM `users` WHERE user_email = '$user_email'";
+    $existSql = "SELECT * FROM `users`";
     $result = mysqli_query($conn, $existSql);
     $numRows = mysqli_num_rows($result);
-    if($numRows>0){
-        $showError = "Email already in use";
-    }
-    else{
-        if($pass == $cpass){
-            // $hash = password_hash($pass, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO `users` (`user_name`,`user_email`, `user_mob`, `user_pass`, `timestamp`,`status`) VALUES ('$user_name', '$user_email', '$mobile', '$pass', current_timestamp(),$status)";
-            $result = mysqli_query($conn, $sql);
-            
-            if($result){
-                $showAlert = true;
-                header("Location: /web/index.php?signupsuccess=true");
-                exit();
-            }
 
+    while ($row = mysqli_fetch_assoc($result)) {
+        if ($_POST['username'] == $row['user_name']) {
+            header("Location: /web/index.php?signupsuccess_false_user_name_alerady_in_use");
         }
-        else{
-            $showError = "Passwords do not match"; 
-            
+        else if ($_POST['email'] == $row['user_email']) {
+            header("Location: /web/index.php?signupsuccess_false_user_email_alerady_in_use");
         }
-    }
-    header("Location: /web/index.php?signupsuccess=false&error=$showError");
+        else if ($_POST['signupMobile'] == $row['user_mob']) {
+            header("Location: /web/index.php?signupsuccess_false_user_mob_alerady_in_use");
+        }
+        else if ($pass != $cpass) {
+            $showError = "passwordnotmatched";
+            header("Location: /web/index.php?signupsuccess_false_password_not_matched_alerady_in_use");
+        }
 
+    }
+    $sql = "INSERT INTO `users` (`user_name`,`user_email`, `user_mob`, `user_pass`, `timestamp`,`status`) VALUES ('$user_name', '$user_email', '$mobile', '$pass', current_timestamp(),$status)";
+    $result1 = mysqli_query($conn, $sql);
+
+    if ($result1) {
+        $showAlert = true;
+        header("Location: /web/index.php?signupsuccess=true");
+        exit();
+    } else {
+        echo "";
+    }
 }
 ?>
